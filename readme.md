@@ -8,7 +8,7 @@ This Dataset is the official dataset accompanying the paper *"DiffCkt: A Diffusi
 
 - **Process Technology**: TSMC 65nm CMOS, a widely used PDK for analog integrated circuit design.
 - **Data Composition**: Includes single-stage and multistage amplifiers with diverse topologies, ensuring broad coverage of circuit structures and parameters.
-- **Performance Metrics**: 13 critical metrics are recorded for each circuit, including power consumption (\(P_{\text{diss}}\)), DC gain (\(\text{Gain}_{\text{DC}}\)), gain-bandwidth product (GBW), phase margin (PM), and more .
+- **Performance Metrics**: 13 critical metrics are recorded for each circuit, including power consumption, DC gain, gain-bandwidth product (GBW), phase margin (PM), and more .
 - **Graph Representation**: Circuits are encoded as graphs with node attributes (device types and parameters) and edge attributes (port connections), enabling compatibility with graph-based machine learning models .
 
 ### Dataset Structure:
