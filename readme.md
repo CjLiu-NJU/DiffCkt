@@ -4,15 +4,46 @@
 
 This Dataset is the official dataset accompanying the paper *"DiffCkt: A Diffusion Model-Based Hybrid Neural Network Framework for Automatic Transistor-Level Generation of Analog Circuits"*. Designed to advance automated analog circuit design, this dataset provides high-quality training and research resources for the field. Constructed based on the TSMC 65nm CMOS process, it contains **over 400,000 pairs of amplifier structures and performance metrics** .
 
-### Key Features:
+For a detailed illustration of the dataset and how it is built, please refer to
 
-- **Process Technology**: TSMC 65nm CMOS, a widely used PDK for analog integrated circuit design.
-- **Data Composition**: Includes single-stage and multistage amplifiers with diverse topologies, ensuring broad coverage of circuit structures and parameters.
-- **Performance Metrics**: 13 critical metrics are recorded for each circuit, including power consumption, DC gain, gain-bandwidth product (GBW), phase margin (PM), and more .
-- **Graph Representation**: Circuits are encoded as graphs with node attributes (device types and parameters) and edge attributes (port connections), enabling compatibility with graph-based machine learning models .1
+> Diffckt_Appendix.pdf
 
-### Dataset Structure:
 
-- **Single-Stage Amplifiers**: ~60,000 samples.
-- **Multistage Amplifiers**: ~90,000 samples per topology, covering 28 distinct amplifier structures derived from 5 multistage and 8 single-stage topologies .
-- **File Format**: Graph data is stored by .pt format.
+# Dataset Loading Instructions
+
+To use the dataset provided with this work, please follow these steps:
+
+## 1. Dataset Preparation
+
+Download the `data_chunks_1.zip` ~ `data_chunks_12.zip` files as well as the `unzip_and_load.py` script to your local working directory (e.g., `/mypath`)
+
+## 2. Data Processing
+
+Execute the processing script:
+
+```shell
+python unzip_and_load.py
+```
+
+The extracted data will be stored in the `/mypath/unzipped_data` directory.
+
+## 3. Loading the Dataset
+
+The `unzip_and_load.py` script provides a `load_data()` function that returns a `torch.utils.data.Dataset` object containing all circuit samples:
+
+```python
+from unzip_and_load import load_data 
+
+# Customize the data path if needed (default: 'unzipped_data')
+dir_path = 'unzipped_data'  
+circuit_dataset = load_data(dir_path=dir_path)
+```
+
+## Dataset Specifications
+
+- **Total samples**: 456,872 circuits
+- **Sample structure** (see Appendix A/B of our paper for details):
+  - `X: torch.Size([22, 21])` (Node features)
+  - `E: torch.Size([22, 22, 25])` (Edge features)
+  - `Y: torch.Size([13])` (Circuit performances)
+  - `node_mask: torch.Size([22])` (Node mask)
