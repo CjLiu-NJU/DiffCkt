@@ -7,6 +7,7 @@ This Dataset is the official dataset accompanying the paper *"DiffCkt: A Diffusi
 For a detailed illustration of the dataset and how it is built, please refer to
 
 > Diffckt_Appendix.pdf
+
 **A detailed illustration of how the relative performance is calculated is also shown in this file!**
 
 # Dataset Loading Instructions
